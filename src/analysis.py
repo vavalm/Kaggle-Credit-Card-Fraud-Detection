@@ -32,7 +32,7 @@ st.write("DataFrame brut:")
 st.write(df_raw.sample(frac=0.1))
 st.markdown('''
 Explications des variables du dataset :
-* Time : Temps passé entre l'action de l'utilisateur et la première du dataset
+* Time : Temps passé entre l'action de l'utilisateur et la première transaction du dataset
 * V1, V2, ... : Les principales features relevées suite à une PCA
 * Amount : Somme dépensée lors de la transaction
 * Class : Prend la valeur 1 en cas de fraude, 0 sinon
@@ -46,7 +46,7 @@ st.markdown(f'''**Nombre de fraudes** : {fraud_df.shape[0]} ({round(100 * fraud_
 st.markdown('''**Nombres de transactions normales** : {non_fraud_df.shape[0]} 
 ({round(100 * non_fraud_df.shape[0] / line_nb, 2)}%)''')
 
-st.markdown("### Histogramme de nombre de transactions/fraudes en fonction du temps")
+st.markdown("### Histogramme du nombre de transactions/fraudes en fonction du temps")
 fig = px.histogram(fraud_df, x='Time', color='Class', title="Fraudes", nbins=40)
 st.plotly_chart(fig)
 
@@ -113,7 +113,7 @@ sns.heatmap(corr, xticklabels=corr.columns, yticklabels=corr.columns,
             linewidths=.1, cmap="RdBu", ax=ax)
 st.pyplot(fig)
 
-st.markdown('''## Predictions''')
+st.markdown('''## Prédictions''')
 def model_preds(model_class, X_train, y_train, X_test):
     model = model_class
     model.fit(X_train, y_train)
@@ -121,7 +121,7 @@ def model_preds(model_class, X_train, y_train, X_test):
     return model, y_pred
 
 
-st.markdown('''### Logistic Regression''')
+st.markdown('''### Régression logistique''')
 model, y_pred = model_preds(LogisticRegression(), X_rus, y_rus, X_test)
 st.write(classification_report(y_test, y_pred))
 st.write("AUC: {:.2f}\n".format(roc_auc_score(y_test, y_pred)))
@@ -131,9 +131,9 @@ st.subheader("Confusion Matrix")
 fig, ax = plt.subplots()
 sns.heatmap(confusion_matrix(y_test, y_pred, normalize='true'), annot=True, ax=ax)
 
-ax.set_title("Confusion Matrix")
-ax.set_ylabel("Real Value")
-ax.set_xlabel("Predicted")
+ax.set_title("Matrice de corrélation")
+ax.set_ylabel("Valeure réelle")
+ax.set_xlabel("Prédite")
 st.pyplot()
 
 st.subheader("Decision Tree")
@@ -147,9 +147,9 @@ st.subheader("Confusion Matrix")
 fig, ax = plt.subplots()
 sns.heatmap(confusion_matrix(y_test, y_pred, normalize='true'), annot=True, ax=ax)
 
-ax.set_title("Confusion Matrix")
-ax.set_ylabel("Real Value")
-ax.set_xlabel("Predicted")
+ax.set_title("Matrice de corrélation")
+ax.set_ylabel("Valeure réelle")
+ax.set_xlabel("Prédite")
 st.pyplot()
 
 dot = export_graphviz(model, filled=True, rounded=True, feature_names=X.columns, class_names=['0', '1'])
