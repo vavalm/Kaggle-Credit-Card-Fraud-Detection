@@ -1,0 +1,7 @@
+streamlit~=0.69.2
+pandas~=1.0.5
+matplotlib~=3.2.2
+seaborn~=0.10.1
+plotly~=4.11.0
+scikit-learn~=0.23.1
+imbalanced-learn
