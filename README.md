@@ -7,6 +7,12 @@ Contient les transactions effectuées en CB en septembre 2013 par des clients eu
 ## But
 Identifier les transactions frauduleuses effectuées par carte bancaire.
 
+## Dashboard réalisé avec Streamlit
+
+## Prévisualisation
+
+![dashboard_preview1](images/dashboard_preview1.png "Dashboard streamlit : preview") 
+
 ## Acknowledgements
 The dataset has been collected and analysed during a research collaboration of Worldline and the Machine Learning Group (http://mlg.ulb.ac.be) of ULB (Université Libre de Bruxelles) on big data mining and fraud detection.
 More details on current and past projects on related topics are available on https://www.researchgate.net/project/Fraud-detection-5 and the page of the DefeatFraud project
