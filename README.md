@@ -9,6 +9,10 @@ Identifier les transactions frauduleuses effectuées par carte bancaire.
 
 ## Dashboard réalisé avec Streamlit
 
+Streamlit est une bibliothèque Python permettant de créer des dashboards intéractifs
+avec la possibilité de les partager en application Web en ligne très facilement.
+Pour plus d'informations, [cliquer ici pour accéder au github de Streamlit](https://github.com/streamlit/streamlit).
+
 ## Prévisualisation
 
 ![dashboard_preview1](images/dashboard_preview1.png "Dashboard streamlit : preview") 
